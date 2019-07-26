@@ -6,10 +6,6 @@ import { Md5 } from 'ts-md5/dist/md5';
 import { Http, Headers, RequestOptions } from "@angular/http";
 import 'rxjs/add/operator/map';
 
-
-
-
-
 @Injectable()
 
 export class ConfigProvider {
