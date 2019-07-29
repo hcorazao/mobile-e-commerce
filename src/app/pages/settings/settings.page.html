@@ -1,9 +1,119 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
+
+  <ion-navbar>
+
+
+    <ion-title>
+      {{'Settings'| translate }}
+    </ion-title>
+
+    <ion-buttons end>
+
+      <button ion-button icon-only (click)="openSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+
+      <button ion-button icon-only class="cart-button" (click)="openCart()">
+        <ion-icon name="cart">
+          <ion-badge color="secondary">{{shared.cartquantity}}</ion-badge>
+        </ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content class="page-settings">
+
+  <ion-list class="list-avatar" padding>
+
+    <!-- If user not logged in -->
+    <ion-item text-center *ngIf="shared.customerData.customers_id==null" (click)="openLoginPage()">
+      <ion-avatar>
+        <ion-icon name="person"></ion-icon>
+      </ion-avatar>
+      <h2>{{ 'Login & Register' | translate }}</h2>
+      <p>{{ 'Please login or create an account' | translate }}</p>
+    </ion-item>
+
+    <!-- If user  logged in -->
+    <ion-item text-center *ngIf="shared.customerData.customers_id!=null">
+      <ion-avatar>
+        <img src="{{config.imgUrl+shared.customerData.customers_picture}}">
+      </ion-avatar>
+      <h2>{{shared.customerData.customers_firstname +"&nbsp;"+shared.customerData.customers_lastname}}</h2>
+      <p>{{shared.customerData.email}}</p>
+      <button ion-button color="light" (click)="openPage('myAccount')">
+        {{'Edit Profile' | translate }}
+      </button>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+
+    <!-- When logged in user pages -->
+
+    <button ion-item padding-horizontal *ngIf="shared.customerData.customers_id!=null && config.myOrdersPage==1" (click)="openPage('myOrders')">{{
+      'My Orders' | translate }}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+    <button ion-item padding-horizontal *ngIf="shared.customerData.customers_id!=null && config.shippingAddressPage==1"
+            (click)="openPage('myShippingAddresses')">{{ 'Shipping Address' | translate }}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+    <button ion-item padding-horizontal *ngIf="shared.customerData.customers_id!=null && config.wishListPage==1" (click)="openPage('myWishList')">{{
+      'My Wish List' | translate }}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+    <!-- ========================= -->
+
+    <button ion-item padding-horizontal (click)="showModal('language')">
+      {{"Change Language"|translate}}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+
+    <button ion-item padding-horizontal (click)="showModal('privacyPolicy')">
+      {{"Privacy Policy"|translate}}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+
+    </button>
+    <button ion-item padding-horizontal (click)="showModal('refundPolicy')">
+      {{"Refund Policy"|translate}}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+
+    </button>
+    <button ion-item padding-horizontal (click)="showModal('termServices')">
+      {{"Term and Services"|translate}}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+    <button ion-item padding-horizontal *ngIf="config.aboutUsPage==1" (click)="openPage('aboutUs')">{{ 'About Us' | translate
+      }}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+    <button ion-item padding-horizontal *ngIf="config.contactUsPage==1" (click)="openPage('contactUs')">{{ 'Contact Us' |
+            translate }}
+      <ion-icon item-end name="arrow-dropright"></ion-icon>
+    </button>
+
+
+  </ion-list>
+  <ion-list *ngIf="shared.customerData.customers_id!=null" padding>
+    <button ion-button block color="secondary" (click)="logOut()">
+      {{'Log Out' | translate }}
+    </button>
+  </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <footer></footer>
+</ion-footer>

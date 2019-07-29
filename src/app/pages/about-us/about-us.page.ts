@@ -1,15 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { SharedDataProvider } from '../../services/shared-data/shared-data';
+import { PrivacyPolicyPageModule } from '../privacy-policy/privacy-policy.module';
+import { TermServicesPageModule } from '../term-services/term-services.module';
+import { RefundPolicyPageModule } from '../refund-policy/refund-policy.module';
+import { ConfigProvider } from '../../services/config/config';
+import { LoadingProvider } from '../../services/loading/loading';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { CartPageModule } from '../cart/cart.module';
+import { SearchPageModule } from '../search/search.module';
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: './about-us.page.html',
-  styleUrls: ['./about-us.page.scss'],
+  templateUrl: 'about-us.html',
 })
-export class AboutUsPage implements OnInit {
+export class AboutUsPage {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    public navCtrl: NavController,
+    public shared: SharedDataProvider,
+    public modalCtrl: ModalController,
+    public config: ConfigProvider,
+    public navParams: NavParams,
+    public loading: LoadingProvider,
+    public iab: InAppBrowser,
+    ) {
   }
+  showModal(value) {
+    if (value == 'privacyPolicy') {
+      let modal = this.modalCtrl.create(PrivacyPolicyPage);
+      modal.present();
+    }
+    else if (value == 'termServices') {
+      let modal = this.modalCtrl.create(TermServicesPage);
+      modal.present();
+    }
+    else {
+      let modal = this.modalCtrl.create(RefundPolicyPage);
+      modal.present();
+    }
+  }
+  openSite(){
+    this.loading.autoHide(2000);
+    this.iab.create(this.config.siteUrl,"blank");
+  }
+  openCart() {
+    this.navCtrl.push(CartPage);
+}
+openSearch() {
+    this.navCtrl.push(SearchPage);
+}
 
 }

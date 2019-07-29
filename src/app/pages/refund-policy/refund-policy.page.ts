@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
+import { SharedDataProvider } from '../../services/shared-data/shared-data';
+
 
 @Component({
   selector: 'app-refund-policy',
-  templateUrl: './refund-policy.page.html',
-  styleUrls: ['./refund-policy.page.scss'],
+  templateUrl: 'refund-policy.html',
 })
-export class RefundPolicyPage implements OnInit {
+export class RefundPolicyPage {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    public viewCtrl: ViewController,
+    public shared: SharedDataProvider,
+    ) {
+      this.shared.currentOpenedModel = this;
   }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+    this.shared.currentOpenedModel = null;
+  }
+
 
 }

@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
+import { SharedDataProvider } from '../../services/shared-data/shared-data';
+
 
 @Component({
   selector: 'app-term-services',
-  templateUrl: './term-services.page.html',
-  styleUrls: ['./term-services.page.scss'],
+  templateUrl: 'term-services.html',
 })
-export class TermServicesPage implements OnInit {
+export class TermServicesPage {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    public viewCtrl: ViewController,
+    public shared: SharedDataProvider,
+    ) {
+      this.shared.currentOpenedModel = this;
   }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+    this.shared.currentOpenedModel = null;
+  }
+
 
 }

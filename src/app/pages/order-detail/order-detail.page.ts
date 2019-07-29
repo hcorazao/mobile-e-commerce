@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ConfigProvider } from '../../services/config/config';
+import { AlertProvider } from '../../services/alert/alert';
+import { LoadingProvider } from '../../services/loading/loading';
+import { SharedDataProvider } from '../../services/shared-data/shared-data';
+import { ProductDetailPageModule } from '../product-detail/product-detail.module';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-order-detail',
-  templateUrl: './order-detail.page.html',
-  styleUrls: ['./order-detail.page.scss'],
+  templateUrl: 'order-detail.html',
 })
-export class OrderDetailPage implements OnInit {
+export class OrderDetailPage {
+  order: { [k: string]: any } = {};
+  constructor(
+    public navCtrl: NavController,
+    public config: ConfigProvider,
+    public navParams: NavParams,
+    public httpClient: HttpClient,
+    public shared: SharedDataProvider,
+    public alert: AlertProvider,
+    public loading: LoadingProvider) {
+    this.order = this.navParams.get('data');
+  }
+  getSingleProductDetail(id) {
+    this.loading.show();
 
-  constructor() { }
-
-  ngOnInit() {
+    var dat: { [k: string]: any } = {};
+    if (this.shared.customerData != null)
+      dat.customers_id = this.shared.customerData.customers_id;
+    else
+      dat.customers_id = null;
+    dat.products_id = id;
+    dat.language_id = this.config.langId;
+    this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data:any) => {
+      this.loading.hide();
+      if (data.success == 1) {
+        this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] });
+      }
+    });
+  }
+  ionViewDidLoad() {
+    this.order = this.navParams.get('data');
   }
 
 }

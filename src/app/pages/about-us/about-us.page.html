@@ -1,9 +1,33 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>about-us</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-navbar>
 
-<ion-content>
+  
+      <ion-title>
+        {{'About Us'| translate }}
+      </ion-title>
+  
 
+    </ion-navbar>
+  </ion-header>
+
+<ion-content class="page-about-us" padding>
+  <div [innerHTML]="shared.aboutUs"></div>
+
+  <ion-list>
+
+    <ion-item button (click)="showModal('privacyPolicy')">
+        {{'Privacy Policy'|translate}}
+
+    </ion-item>
+    <ion-item button (click)="showModal('refundPolicy')">
+        {{'Refund Policy'|translate}}
+
+    </ion-item>
+    <ion-item button (click)="showModal('termServices')">
+        {{'Term and Services'|translate}}
+
+    </ion-item>
+  </ion-list>
 </ion-content>
+

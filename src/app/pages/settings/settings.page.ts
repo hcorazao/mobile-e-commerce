@@ -1,15 +1,158 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController, NavParams, ModalController, Events, Platform } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { LanguagePageModule } from '../language/language.module';
+import { ConfigProvider } from '../../services/config/config';
+import { Storage } from '@ionic/storage';
+import { PrivacyPolicyPageModule } from '../privacy-policy/privacy-policy.module';
+import { TermServicesPageModule } from '../term-services/term-services.module';
+import { RefundPolicyPageModule } from '../refund-policy/refund-policy.module';
+import { LoadingProvider } from '../../services/loading/loading';
+import { SharedDataProvider } from '../../services/shared-data/shared-data';
+import { LoginPageModule } from '../login/login.module';
+import { MyAccountPageModule } from '../my-account/my-account.module';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { CartPageModule } from '../cart/cart.module';
+import { SearchPageModule } from '../search/search.module';
+import { HttpClient } from '@angular/common/http';
+import {WishListPageModule} from "../wish-list/wish-list.module";
+import {ContactUsPageModule} from "../contact-us/contact-us.module";
+import {AboutUsPageModule} from "../about-us/about-us.module";
+import {MyOrdersPageModule} from "../my-orders/my-orders.module";
+import {MyShippingAddressesPageModule} from "../my-shipping-addresses/my-shipping-addresses.module";
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+  templateUrl: 'settings.html',
 })
-export class SettingsPage implements OnInit {
 
-  constructor() { }
+export class SettingsPage {
+  setting: { [k: string]: any } = {};
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public config: ConfigProvider,
+    private storage: Storage,
+    public loading: LoadingProvider,
+    public httpClient: HttpClient,
+    private localNotifications: LocalNotifications,
+    public events: Events,
+    public shared: SharedDataProvider,
+    public iab: InAppBrowser,
+    public plt: Platform,
+  ) {
 
-  ngOnInit() {
   }
+
+
+  turnOnOffNotification(value) {
+    if (this.setting.localNotification == false) {
+      this.localNotifications.cancel(1).then((result) => {
+      });
+    }
+    else {
+      this.localNotifications.schedule({
+        id: 1,
+        title: this.config.notifTitle,
+        text: this.config.notifText,
+        every: this.config.notifDuration,
+      });
+    }
+
+    this.updateSetting();
+  }
+
+  updateSetting() {
+    console.log(this.setting);
+    this.storage.set('setting', this.setting);
+  }
+
+  openLoginPage() {
+    let modal = this.modalCtrl.create(LoginPage);
+    modal.present();
+  }
+
+  logOut() {
+    this.shared.logOut();
+  }
+
+  openPage(page) {
+    if (page == 'myAccount') this.navCtrl.push(MyAccountPage);
+    else if(page == 'myWishList') this.navCtrl.push(WishListPage);
+    else if (page == 'contactUs') this.navCtrl.push(ContactUsPage);
+    else if (page == 'aboutUs') this.navCtrl.push(AboutUsPage);
+    else if (page == 'myOrders') this.navCtrl.push(MyOrdersPage);
+    else if (page == 'myShippingAddresses') this.navCtrl.push(MyShippingAddressesPage);
+
+  }
+
+  //============================================================================================
+  //turning on off local  notification
+  onOffPushNotification() {
+    this.storage.get('registrationId').then((registrationId) => {
+      var dat: { [k: string]: any } = {};
+      dat.device_id = registrationId;
+      if (this.setting.notification == false) dat.is_notify = 0;
+      else dat.is_notify = 1;
+      this.httpClient.post(this.config.url + 'notify_me', dat).subscribe((data:any) => {
+        if (data.success == 1) {
+
+          this.updateSetting();
+        }
+      }, function (response) {
+        console.log(response);
+      });
+    });
+  };
+  hideShowFooterMenu() {
+    this.events.publish('setting', this.setting);
+    this.updateSetting();
+  }
+  hideShowCartButton() {
+    this.events.publish('setting', this.setting);
+    this.updateSetting();
+  }
+  showModal(value) {
+    this.loading.autoHide(1000);
+    if (value == 'privacyPolicy') {
+      let modal = this.modalCtrl.create(PrivacyPolicyPage);
+      modal.present();
+    }
+    else if (value == 'termServices') {
+      let modal = this.modalCtrl.create(TermServicesPage);
+      modal.present();
+    }
+    else if (value == 'language') {
+      let modal = this.modalCtrl.create(LanguagePage);
+      modal.present();
+    }
+    else {
+      let modal = this.modalCtrl.create(RefundPolicyPage);
+      modal.present();
+    }
+  }
+  ionViewDidLoad() {
+    this.storage.get('setting').then((val) => {
+      if (val != null || val != undefined) {
+        this.setting = val;
+
+      }
+      else {
+        this.setting.localNotification = true;
+        this.setting.notification = true;
+        this.setting.cartButton = true;
+        this.setting.footer = true;
+      }
+    });
+  }
+
+  openCart() {
+    this.navCtrl.push(CartPage);
+  }
+  openSearch() {
+    this.navCtrl.push(SearchPage);
+  }
+
 
 }
