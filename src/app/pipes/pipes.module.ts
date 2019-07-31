@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-//import { CurencyPipe } from './curency/curency';
+import { CurencyPipe } from './curency/curency';
 @NgModule({
     declarations: [
-        //CurencyPipe
+        CurencyPipe
     ],
     imports: [],
     exports: [
-        //CurencyPipe
+        CurencyPipe
     ]
 })
 export class PipesModule { }
