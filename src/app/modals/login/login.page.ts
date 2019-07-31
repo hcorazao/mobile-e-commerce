@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ViewController, ModalController } from 'ionic-angular';
-import { SignUpModal } from '../sign-up/sign-up.page';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
-import { ForgotPasswordModal } from '../forgot-password/forgot-password.page';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
+import { SignUpModal } from '../sign-up/sign-up.page';
+import { ForgotPasswordModal } from '../forgot-password/forgot-password.page';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { AlertProvider } from '../../services/alert/alert';
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -47,12 +47,12 @@ export class LoginModal {
     });
   }
   openSignUpPage() {
-    let modal = this.modalCtrl.create(SignUpPage);
+    let modal = this.modalCtrl.create(SignUpModal);
     modal.present();
     this.dismiss();
   }
   openForgetPasswordPage() {
-    let modal = this.modalCtrl.create(ForgotPasswordPage);
+    let modal = this.modalCtrl.create(ForgotPasswordModal);
     modal.present();
   }
 

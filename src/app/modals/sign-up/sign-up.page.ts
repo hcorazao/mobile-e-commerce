@@ -76,21 +76,21 @@ export class SignUpModal {
   }
 
   openPrivacyPolicyPage() {
-    let modal = this.modalCtrl.create(PrivacyPolicyPage);
+    let modal = this.modalCtrl.create(PrivacyPolicyModal);
     modal.present();
   }
   openTermServicesPage() {
-    let modal = this.modalCtrl.create(TermServicesPage);
+    let modal = this.modalCtrl.create(TermServicesModal);
     modal.present();
   }
   openRefundPolicyPage() {
-    let modal = this.modalCtrl.create(RefundPolicyPage);
+    let modal = this.modalCtrl.create(RefundPolicyModal);
     modal.present();
   }
   dismiss() {
     this.viewCtrl.dismiss();
     this.shared.currentOpenedModel = null;
-    let modal = this.modalCtrl.create(LoginPage);
+    let modal = this.modalCtrl.create(LoginModal);
     modal.present();
   }
 }

@@ -88,7 +88,7 @@ export class OrderPage {
         this.products = [];
         this.orderDetail = {};
         this.shared.orderDetails = {};
-        this.navCtrl.setRoot(ThankYouPage);
+        this.router.navigate(['/thank-you']);
       }
       if (data.success == 0) { this.alert.show(data.message); }
     }, err => {
