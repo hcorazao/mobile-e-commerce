@@ -41,6 +41,6 @@ export class StoresPage {
     }
 
     showManufacturerStore(c){
-      this.router.navigate(['/shop'], { data: c})
+      this.router.navigate(['/shop']);
     }
 }

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-select-zones',
-  templateUrl: 'select-zones.html',
+  templateUrl: 'select-zones.page.html',
 })
 export class SelectZonesModal {
 

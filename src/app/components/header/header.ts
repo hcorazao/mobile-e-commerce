@@ -1,8 +1,7 @@
 
+import { RouterModule, Routes, Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
-import { CartPage } from '../../pages/cart/cart';
-import { SearchPage } from '../../pages/search/search';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { trigger, style, animate, transition, state } from '@angular/animations';
 
@@ -36,6 +35,7 @@ export class HeaderComponent {
   cartShake = 'active';
 
   constructor(
+    private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public events: Events
@@ -53,11 +53,11 @@ export class HeaderComponent {
   }
   openCart() {
     if (this.openCartPage)
-      this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart'])
   }
   openSearch() {
     if (this.title != 'Search')
-      this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search'])
   }
   openHomePage() {
     this.navCtrl.popToRoot();

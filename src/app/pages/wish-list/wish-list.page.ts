@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, InfiniteScroll } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';

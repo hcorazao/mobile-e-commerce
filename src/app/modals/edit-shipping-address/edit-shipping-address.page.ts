@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-shipping-address',
-  templateUrl: 'edit-shipping-address.html',
+  templateUrl: 'edit-shipping-address.page.html',
 })
 export class EditShippingAddressModal {
   shippingData: { [k: string]: any } = {};

@@ -6,7 +6,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
 
 @Component({
   selector: 'app-privacy-policy',
-  templateUrl: 'privacy-policy.html',
+  templateUrl: 'privacy-policy.page.html',
 })
 export class PrivacyPolicyModal {
 

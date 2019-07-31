@@ -5,7 +5,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
 
 @Component({
   selector: 'app-refund-policy',
-  templateUrl: 'refund-policy.html',
+  templateUrl: 'refund-policy.page.html',
 })
 export class RefundPolicyModal {
 

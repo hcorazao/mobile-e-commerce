@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.page.html',
 
 })
 export class LoginModal {

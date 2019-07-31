@@ -43,7 +43,7 @@ export class SubCategoriesPage {
   }
   
   openProducts(id, name) {
-    this.router.navigate(['/products'], { id: id, name: name, sortOrder: 'newest' });
+    this.router.navigate(['/products']);
   }
   openCart() {
     this.router.navigate(['/cart']);

@@ -7,7 +7,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
 
 @Component({
   selector: 'app-forgot-password',
-  templateUrl: 'forgot-password.html',
+  templateUrl: 'forgot-password.page.html',
 })
 export class ForgotPasswordModal {
   formData = {

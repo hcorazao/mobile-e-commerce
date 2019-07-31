@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController } from 'ionic-angular';
-import { HomePage } from '../../pages/home/home';
+import { HomePageModule } from '../../pages/home/home.module';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { SettingsPage } from '../../pages/settings/settings';
+import { SettingsPageModule } from '../../pages/settings/settings.module';
 import { ConfigProvider } from '../../services/config/config';
-import {StoresPage} from "../../pages/stores/stores";
-import {SearchPage} from "../../pages/search/search";
-import {CartPage} from "../../pages/cart/cart";
+import {StoresPageModule} from "../../pages/stores/stores.module";
+import {SearchPageModule} from "../../pages/search/search.module";
+import {CartPageModule} from "../../pages/cart/cart.module";
 
 @Component({
   selector: 'footer',
@@ -15,6 +16,7 @@ import {CartPage} from "../../pages/cart/cart";
 export class FooterComponent {
   segments: any = 'HomePage';
   constructor(
+    private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public config: ConfigProvider,
@@ -24,11 +26,11 @@ export class FooterComponent {
   openPage(page) {
     this.shared.selectedFooterPage = page;
 
-    if (page == "HomePage") { this.navCtrl.setRoot(HomePage); }
-    else if (page == "CartPage") { this.navCtrl.push(CartPage); }
-    else if (page == "SearchPage") { this.navCtrl.push(SearchPage); }
-    else if (page == "StoresPage") { this.navCtrl.setRoot(StoresPage); }
-    else if (page == "SettingsPage") { this.navCtrl.setRoot(SettingsPage); }
+    if (page == "HomePage") { this.router.navigate(['/home']); }
+    else if (page == "CartPage") { this.router.navigate(['/cart']); }
+    else if (page == "SearchPage") { this.router.navigate(['/search']); }
+    else if (page == "StoresPage") { this.router.navigate(['/stores']); }
+    else if (page == "SettingsPage") { this.router.navigate(['/settings']); }
   }
 
 }

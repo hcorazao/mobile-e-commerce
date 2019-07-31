@@ -38,7 +38,7 @@ export class CategoriesPage {
 
   }
   openSubCategories(parent) {
-    this.router.navigate(['/sub-categories'], { 'parent': parent });
+    this.router.navigate(['/sub-categories']);
   }
   openCart() {
     this.router.navigate(['/cart']);

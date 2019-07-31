@@ -38,7 +38,8 @@ export class OrderDetailPage {
     this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data:any) => {
       this.loading.hide();
       if (data.success == 1) {
-        this.router.navigate(['/product-detail'], { data: data.product_data[0] });
+        // this.router.navigate(['/product-detail'], { data: data.product_data[0] });
+        this.router.navigate(['/product-detail']);
       }
     });
   }

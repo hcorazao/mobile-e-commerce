@@ -13,7 +13,7 @@ import { RefundPolicyModal } from '../refund-policy/refund-policy.page';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: 'sign-up.html',
+  templateUrl: 'sign-up.page.html',
 })
 export class SignUpModal {
   formData = {

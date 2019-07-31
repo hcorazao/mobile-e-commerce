@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-select-country',
-  templateUrl: 'select-country.html',
+  templateUrl: 'select-country.page.html',
 })
 export class SelectCountryModal {
   @ViewChild('Searchbar') searchBar: Searchbar;

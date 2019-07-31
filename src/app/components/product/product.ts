@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { NavController, NavParams, ModalController, Events } from 'ionic-angular';
-import { ProductDetailPage } from '../../pages/product-detail/product-detail';
-import { LoginPage } from '../../pages/login/login';
 import { HttpClient } from '@angular/common/http';
 import { LoadingProvider } from '../../services/loading/loading';
+import { LoginModal } from '../../modals/login/login.page';
 
 @Component({
   selector: 'product',
@@ -19,6 +19,7 @@ export class ProductComponent {
   expired = false;
   is_upcomming = false;
   constructor(
+    private router: Router,
     public config: ConfigProvider,
     public shared: SharedDataProvider,
     public navCtrl: NavController,
@@ -69,13 +70,15 @@ export class ProductComponent {
       this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data: any) => {
         this.loading.hide();
         if (data.success == 1) {
-          this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] });
+          // this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] }); //TODO
+          this.router.navigate(['/product-detail']); 
           //console.log(data.product_data[0]);
         }
       });
     }
     else
-      this.navCtrl.push(ProductDetailPage, { data: this.p });
+      // this.navCtrl.push(ProductDetailPage, { data: this.p }); //TODO
+      this.router.navigate(['/product-detail']); 
 
     console.log(this.p);
     if (this.type != 'recent') this.shared.addToRecent(this.p);
@@ -110,7 +113,7 @@ export class ProductComponent {
   clickWishList() {
 
     if (this.shared.customerData.customers_id == null || this.shared.customerData.customers_id == undefined) {
-      let modal = this.modalCtrl.create(LoginPage);
+      let modal = this.modalCtrl.create(LoginModal);
       modal.present();
     }
     else {

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
 import { NavController, NavParams } from 'ionic-angular';
-import { ProductsPage } from '../../pages/products/products';
+import { ProductsPageModule } from '../../pages/products/products.module';
 import { LoadingProvider } from '../../services/loading/loading';
-import { ProductDetailPage } from '../../pages/product-detail/product-detail';
+import { ProductDetailPageModule } from '../../pages/product-detail/product-detail.module';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -14,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class BannersComponent {
 
   constructor(
+    private router: Router,
     public shared: SharedDataProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -28,13 +30,15 @@ export class BannersComponent {
   bannerClick = function (image) {
     //  console.log(image);
     if (image.type == 'category') {
-      this.navCtrl.push(ProductsPage, { id: parseInt(image.url) });
+      // this.navCtrl.push(ProductsPage, { id: parseInt(image.url) }); // TODO add image URL
+      this.router.navigate(['/products']);
     }
     else if (image.type == 'product') {
       this.getSingleProductDetail(parseInt(image.url));
     }
     else {
-      this.navCtrl.push(ProductsPage, { sortOrder: image.type });
+      // this.navCtrl.push(ProductsPage, { sortOrder: image.type }); // TODO add image type
+      this.router.navigate(['/products']);
     }
   }
   //===============================================================================================
@@ -52,7 +56,8 @@ export class BannersComponent {
     this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data:any) => {
       this.loading.hide();
       if (data.success == 1) {
-        this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] });
+        // this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] }); // TODO add product data
+        this.router.navigate(['/product-detail']);
       }
     });
   }

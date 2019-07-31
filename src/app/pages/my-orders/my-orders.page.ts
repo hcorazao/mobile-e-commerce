@@ -54,11 +54,11 @@ export class MyOrdersPage {
 
   showOrderDetail(order) {
 
-    this.router.navigate(['/order-detail'], { 'data': order });
+    this.router.navigate(['/order-detail']);
 
   }
   openProductsPage() {
-    this.router.navigate(['/products-age'], { sortOrder: 'newest' });
+    this.router.navigate(['/products-age']);
   }
   ionViewDidLoad() {
     this.httpRunning = true;

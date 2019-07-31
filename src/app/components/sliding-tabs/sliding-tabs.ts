@@ -1,4 +1,5 @@
 import { Component, ViewChild, Input } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
@@ -19,6 +20,7 @@ export class SlidingTabsComponent {
   httpRunning = true;
 
   constructor(
+    private router: Router,
     public shared: SharedDataProvider,
     public httpClient: HttpClient,
     public config: ConfigProvider,

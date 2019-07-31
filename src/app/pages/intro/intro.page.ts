@@ -25,6 +25,6 @@ export class IntroPage {
     this.slides
   }
   openHomePage() {
-    this.navCtrl.setRoot(HomePage);
+    this.router.navigate(['/home']);
   }
 }

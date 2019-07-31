@@ -5,7 +5,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
 
 @Component({
   selector: 'app-term-services',
-  templateUrl: 'term-services.html',
+  templateUrl: 'term-services.page.html',
 })
 export class TermServicesModal {
 

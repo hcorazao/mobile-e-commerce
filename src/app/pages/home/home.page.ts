@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
@@ -55,7 +56,7 @@ export class HomePage {
   }
 
   openProducts(value) {
-    this.router.navigate(['/products'], { sortOrder: value });
+    this.router.navigate(['/products']);
   }
   ngAfterContentChecked() {
     this.content.resize();

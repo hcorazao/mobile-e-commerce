@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-language',
-  templateUrl: 'language.html',
+  templateUrl: 'language.page.html',
 })
 export class LanguageModal {
   private languages: any;

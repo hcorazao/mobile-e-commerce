@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
+import { ModalsModule } from '../modals/modals.module';
+
 @NgModule({
     declarations: [
 
     ],
-    imports: [],
+    imports: [ModalsModule],
     exports: [
 
     ]
