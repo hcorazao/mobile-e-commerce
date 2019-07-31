@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-detail',
-  templateUrl: 'order-detail.html',
+  templateUrl: 'order-detail.page.html',
 })
 export class OrderDetailPage {
   order: { [k: string]: any } = {};

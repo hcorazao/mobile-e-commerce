@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, Events, Platform } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { LanguagePageModule } from '../language/language.module';
+import { LanguageModal } from '../../modals/language/language.page';
 import { ConfigProvider } from '../../services/config/config';
 import { Storage } from '@ionic/storage';
-import { PrivacyPolicyPageModule } from '../privacy-policy/privacy-policy.module';
-import { TermServicesPageModule } from '../term-services/term-services.module';
-import { RefundPolicyPageModule } from '../refund-policy/refund-policy.module';
+import { PrivacyPolicyModal } from '../../modals/privacy-policy/privacy-policy.page';
+import { TermServicesModal } from '../../modals/term-services/term-services.page';
+import { RefundPolicyModal } from '../../modals/refund-policy/refund-policy.page';
 import { LoadingProvider } from '../../services/loading/loading';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { LoginPageModule } from '../login/login.module';
+import { LoginModal} from '../../modals/login/login.page';
 import { MyAccountPageModule } from '../my-account/my-account.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { CartPageModule } from '../cart/cart.module';
@@ -23,7 +23,7 @@ import {MyShippingAddressesPageModule} from "../my-shipping-addresses/my-shippin
 
 @Component({
   selector: 'app-settings',
-  templateUrl: 'settings.html',
+  templateUrl: 'settings.page.html',
 })
 
 export class SettingsPage {
@@ -69,7 +69,7 @@ export class SettingsPage {
   }
 
   openLoginPage() {
-    let modal = this.modalCtrl.create(LoginPage);
+    let modal = this.modalCtrl.create(LoginModal);
     modal.present();
   }
 
@@ -116,19 +116,19 @@ export class SettingsPage {
   showModal(value) {
     this.loading.autoHide(1000);
     if (value == 'privacyPolicy') {
-      let modal = this.modalCtrl.create(PrivacyPolicyPage);
+      let modal = this.modalCtrl.create(PrivacyPolicyModal);
       modal.present();
     }
     else if (value == 'termServices') {
-      let modal = this.modalCtrl.create(TermServicesPage);
+      let modal = this.modalCtrl.create(TermServicesModal);
       modal.present();
     }
     else if (value == 'language') {
-      let modal = this.modalCtrl.create(LanguagePage);
+      let modal = this.modalCtrl.create(LanguageModal);
       modal.present();
     }
     else {
-      let modal = this.modalCtrl.create(RefundPolicyPage);
+      let modal = this.modalCtrl.create(RefundPolicyModal);
       modal.present();
     }
   }

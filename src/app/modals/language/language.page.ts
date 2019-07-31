@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-language',
   templateUrl: 'language.html',
 })
-export class LanguagePage {
+export class LanguageModal {
   private languages: any;
   selectedLanguage;
   translate;

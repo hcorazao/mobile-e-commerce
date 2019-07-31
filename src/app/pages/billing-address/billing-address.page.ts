@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { SelectCountryPageModule } from '../select-country/select-country.module';
-import { SelectZonesPageModule } from '../select-zones/select-zones.module';
+import { SelectCountryModal } from '../../modals/select-country/select-country.page';
+import { SelectZonesModal } from '../../modals/select-zones/select-zones.page';
 import { ShippingMethodPageModule } from '../shipping-method/shipping-method.module';
 
 @Component({
   selector: 'app-billing-address',
-  templateUrl: 'billing-address.html',
+  templateUrl: 'billing-address.page.html',
 })
 export class BillingAddressPage {
   defaultAddress = true;
@@ -49,11 +49,11 @@ export class BillingAddressPage {
    this.navCtrl.push(ShippingMethodPage);
   }
   selectCountryPage() {
-    let modal = this.modalCtrl.create(SelectCountryPage, { page: 'billing' });
+    let modal = this.modalCtrl.create(SelectCountryModal, { page: 'billing' });
     modal.present();
   }
   selectZonePage() {
-    let modal = this.modalCtrl.create(SelectZonesPage, { page: 'billing', id: this.shared.orderDetails.billing_country_id });
+    let modal = this.modalCtrl.create(SelectZonesModal, { page: 'billing', id: this.shared.orderDetails.billing_country_id });
     modal.present();
   }
 

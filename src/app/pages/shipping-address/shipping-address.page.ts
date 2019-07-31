@@ -3,15 +3,15 @@ import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { SelectCountryPageModule } from '../select-country/select-country.module';
-import { SelectZonesPageModule } from '../select-zones/select-zones.module';
+import { SelectCountryModal } from '../../modals/select-country/select-country.page';
+import { SelectZonesModal } from '../../modals/select-zones/select-zones.page';
 import { BillingAddressPageModule } from '../billing-address/billing-address.module';
 import { HttpClient } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-shipping-address',
-  templateUrl: 'shipping-address.html',
+  templateUrl: 'shipping-address.page.html',
 })
 export class ShippingAddressPage {
 
@@ -60,11 +60,11 @@ export class ShippingAddressPage {
     this.navCtrl.push(BillingAddressPage);
   }
   selectCountryPage() {
-    let modal = this.modalCtrl.create(SelectCountryPage, { page: 'shipping' });
+    let modal = this.modalCtrl.create(SelectCountryModal, { page: 'shipping' });
     modal.present();
   }
   selectZonePage() {
-    let modal = this.modalCtrl.create(SelectZonesPage, { page: 'shipping', id: this.shared.orderDetails.delivery_country_id });
+    let modal = this.modalCtrl.create(SelectZonesModal, { page: 'shipping', id: this.shared.orderDetails.delivery_country_id });
     modal.present();
   }
 

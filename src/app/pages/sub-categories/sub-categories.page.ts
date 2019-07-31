@@ -23,7 +23,7 @@ import { SearchPageModule } from '../search/search.module';
       ]
     )
   ],
-  templateUrl: 'sub-categories.html',
+  templateUrl: 'sub-categories.page.html',
 })
 export class SubCategoriesPage {
   subcategories=[];

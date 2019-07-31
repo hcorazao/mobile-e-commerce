@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-my-shipping-addresses',
-  templateUrl: 'my-shipping-addresses.html',
+  templateUrl: 'my-shipping-addresses.page.html',
 })
 export class MyShippingAddressesPage {
   allShippingAddress = new Array;

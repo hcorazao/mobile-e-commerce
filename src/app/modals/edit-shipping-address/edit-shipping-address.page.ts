@@ -3,8 +3,8 @@ import { NavController, NavParams, ViewController, ModalController } from 'ionic
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { SelectCountryPageModule } from '../select-country/select-country.module';
-import { SelectZonesPageModule } from '../select-zones/select-zones.module';
+import { SelectCountryModal } from '../select-country/select-country.page';
+import { SelectZonesModal } from '../select-zones/select-zones.page';
 import { AlertProvider } from '../../services/alert/alert';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-edit-shipping-address',
   templateUrl: 'edit-shipping-address.html',
 })
-export class EditShippingAddressPage {
+export class EditShippingAddressModal {
   shippingData: { [k: string]: any } = {};
   data;
   type = 'update';
@@ -51,11 +51,11 @@ export class EditShippingAddressPage {
   }
 
   selectCountryPage() {
-    let modal = this.modalCtrl.create(SelectCountryPage, { page: 'editShipping' });
+    let modal = this.modalCtrl.create(SelectCountryModal, { page: 'editShipping' });
     modal.present();
   }
   selectZonePage() {
-    let modal = this.modalCtrl.create(SelectZonesPage, { page: 'editShipping', id: this.shippingData.entry_country_id });
+    let modal = this.modalCtrl.create(SelectZonesModal, { page: 'editShipping', id: this.shippingData.entry_country_id });
     modal.present();
   }
   //close modal

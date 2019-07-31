@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-select-country',
   templateUrl: 'select-country.html',
 })
-export class SelectCountryPage {
+export class SelectCountryModal {
   @ViewChild('Searchbar') searchBar: Searchbar;
   searchQuery: string = '';
   items;

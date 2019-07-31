@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
-  templateUrl: 'search.html',
+  templateUrl: 'search.page.html',
 })
 export class SearchPage {
 

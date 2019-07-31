@@ -25,7 +25,7 @@ import { SearchPageModule } from '../search/search.module';
       ]
     )
   ],
-  templateUrl: 'home.html',
+  templateUrl: 'home.page.html',
 })
 
 export class HomePage {

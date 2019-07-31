@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shipping-method',
-  templateUrl: 'shipping-method.html',
+  templateUrl: 'shipping-method.page.html',
 })
 export class ShippingMethodPage {
   shippingMethod = new Array;

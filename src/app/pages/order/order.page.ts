@@ -14,7 +14,7 @@ import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-order',
-  templateUrl: 'order.html',
+  templateUrl: 'order.page.html',
 })
 export class OrderPage {
 

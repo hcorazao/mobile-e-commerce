@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { PrivacyPolicyPageModule } from '../privacy-policy/privacy-policy.module';
-import { TermServicesPageModule } from '../term-services/term-services.module';
-import { RefundPolicyPageModule } from '../refund-policy/refund-policy.module';
+import { PrivacyPolicyModal } from '../../modals/privacy-policy/privacy-policy.page';
+import { TermServicesModal } from '../../modals/term-services/term-services.page';
+import { RefundPolicyModal } from '../../modals/refund-policy/refund-policy.page';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -12,7 +12,7 @@ import { SearchPageModule } from '../search/search.module';
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: 'about-us.html',
+  templateUrl: 'about-us.page.html',
 })
 export class AboutUsPage {
 
@@ -28,15 +28,15 @@ export class AboutUsPage {
   }
   showModal(value) {
     if (value == 'privacyPolicy') {
-      let modal = this.modalCtrl.create(PrivacyPolicyPage);
+      let modal = this.modalCtrl.create(PrivacyPolicyModal);
       modal.present();
     }
     else if (value == 'termServices') {
-      let modal = this.modalCtrl.create(TermServicesPage);
+      let modal = this.modalCtrl.create(TermServicesModal);
       modal.present();
     }
     else {
-      let modal = this.modalCtrl.create(RefundPolicyPage);
+      let modal = this.modalCtrl.create(RefundPolicyModal);
       modal.present();
     }
   }

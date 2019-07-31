@@ -24,7 +24,7 @@ import { SearchPageModule} from '../search/search.module';
       ]
     )
   ],
-  templateUrl: 'categories.html',
+  templateUrl: 'categories.page.html',
 })
 export class CategoriesPage {
 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ViewController, ModalController } from 'ionic-angular';
-import { SignUpPageModule } from '../sign-up/sign-up.module';
+import { SignUpModal } from '../sign-up/sign-up.page';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
-import { ForgotPasswordPageModule } from '../forgot-password/forgot-password.module';
+import { ForgotPasswordModal } from '../forgot-password/forgot-password.page';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { AlertProvider } from '../../services/alert/alert';
@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'login.html',
 
 })
-export class LoginPage {
+export class LoginModal {
   formData = { email: '', password: '' };
   errorMessage = '';
   constructor(

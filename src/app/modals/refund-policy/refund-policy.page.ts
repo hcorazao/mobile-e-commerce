@@ -7,7 +7,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
   selector: 'app-refund-policy',
   templateUrl: 'refund-policy.html',
 })
-export class RefundPolicyPage {
+export class RefundPolicyModal {
 
   constructor(
     public viewCtrl: ViewController,

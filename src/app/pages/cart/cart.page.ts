@@ -6,7 +6,7 @@ import { Toast } from '@ionic-native/toast';
 import { ProductDetailPageModule } from '../product-detail/product-detail.module';
 import { LoadingProvider } from '../../services/loading/loading';
 import { Storage } from '@ionic/storage';
-import { LoginPageModule } from '../login/login.module';
+import { LoginModal} from '../../modals/login/login.page';
 import { ShippingAddressPageModule } from '../shipping-address/shipping-address.module';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ProductsPageModule } from '../products/products.module';
@@ -28,7 +28,7 @@ import { HttpClient } from '@angular/common/http';
       ]
     )
   ],
-  templateUrl: 'cart.html',
+  templateUrl: 'cart.page.html',
 })
 export class CartPage {
   total: any;
@@ -107,7 +107,7 @@ export class CartPage {
   proceedToCheckOut() {
 
     if (this.shared.customerData.customers_id == null || this.shared.customerData.customers_id == undefined) {
-      let modal = this.modalCtrl.create(LoginPage);
+      let modal = this.modalCtrl.create(LoginModal);
       modal.present();
     }
     else {

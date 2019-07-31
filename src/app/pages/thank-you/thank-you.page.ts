@@ -9,7 +9,7 @@ import { ConfigProvider } from '../../services/config/config';
 
 @Component({
   selector: 'app-thank-you',
-  templateUrl: 'thank-you.html',
+  templateUrl: 'thank-you.page.html',
 })
 export class ThankYouPage {
   array = new Array;

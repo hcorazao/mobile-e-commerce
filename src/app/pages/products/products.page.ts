@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
-  templateUrl: 'products.html',
+  templateUrl: 'products.page.html',
 })
 export class ProductsPage {
   @ViewChild(Content) content: Content;

@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-my-account',
-  templateUrl: 'my-account.html',
+  templateUrl: 'my-account.page.html',
 })
 export class MyAccountPage {
   myAccountData = {

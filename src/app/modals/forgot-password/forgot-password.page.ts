@@ -9,7 +9,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
   selector: 'app-forgot-password',
   templateUrl: 'forgot-password.html',
 })
-export class ForgotPasswordPage {
+export class ForgotPasswordModal {
   formData = {
     email: '',
   };

@@ -6,7 +6,7 @@ import { ConfigProvider } from '../../services/config/config';
 
 @Component({
   selector: 'app-intro',
-  templateUrl: 'intro.html',
+  templateUrl: 'intro.page.html',
 })
 export class IntroPage {
   public slides = [

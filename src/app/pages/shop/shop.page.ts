@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-shop',
-    templateUrl: 'shop.html',
+    templateUrl: 'shop.page.html',
 })
 export class ShopPage {
 

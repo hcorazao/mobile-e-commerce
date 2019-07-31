@@ -23,7 +23,7 @@ import {ShopPageModule} from "../shop/shop.module";
         ]
     )
   ],
-  templateUrl: 'stores.html',
+  templateUrl: 'stores.page.html',
 })
 export class StoresPage {
 

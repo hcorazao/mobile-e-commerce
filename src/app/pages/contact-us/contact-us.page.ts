@@ -12,7 +12,7 @@ declare var google;
 
 @Component({
   selector: 'app-contact-us',
-  templateUrl: 'contact-us.html',
+  templateUrl: 'contact-us.page.html',
 })
 export class ContactUsPage {
   @ViewChild('map') mapElement: ElementRef;

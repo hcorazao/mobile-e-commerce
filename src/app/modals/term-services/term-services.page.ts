@@ -7,7 +7,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
   selector: 'app-term-services',
   templateUrl: 'term-services.html',
 })
-export class TermServicesPage {
+export class TermServicesModal {
 
   constructor(
     public viewCtrl: ViewController,

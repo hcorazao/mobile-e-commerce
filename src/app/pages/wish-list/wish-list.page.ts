@@ -24,7 +24,7 @@ import {LoadingProvider} from "../../services/loading/loading";
       ]
     )
   ],
-  templateUrl: 'wish-list.html',
+  templateUrl: 'wish-list.page.html',
 })
 export class WishListPage {
   @ViewChild(InfiniteScroll) infinite: InfiniteScroll;

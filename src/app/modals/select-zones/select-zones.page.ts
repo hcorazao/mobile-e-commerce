@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-select-zones',
   templateUrl: 'select-zones.html',
 })
-export class SelectZonesPage {
+export class SelectZonesModal {
 
   searchQuery: string = '';
   items;

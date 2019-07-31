@@ -5,17 +5,17 @@ import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Platform } from 'ionic-angular';
-import { LoginPageModule } from '../login/login.module';
+import { LoginModal } from '../login/login.page';
 import { HttpClient } from '@angular/common/http';
-import { PrivacyPolicyPageModule } from '../privacy-policy/privacy-policy.module';
-import { TermServicesPageModule } from '../term-services/term-services.module';
-import { RefundPolicyPageModule } from '../refund-policy/refund-policy.module';
+import { PrivacyPolicyModal } from '../privacy-policy/privacy-policy.page';
+import { TermServicesModal } from '../term-services/term-services.page';
+import { RefundPolicyModal } from '../refund-policy/refund-policy.page';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: 'sign-up.html',
 })
-export class SignUpPage {
+export class SignUpModal {
   formData = {
     customers_firstname: '',
     customers_lastname: '',

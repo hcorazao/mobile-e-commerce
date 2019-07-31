@@ -3,7 +3,7 @@ import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { LoginPageModule } from '../login/login.module';
+import { LoginModal} from '../../modals/login/login.page';
 import { LoadingProvider } from '../../services/loading/loading';
 import { HttpClient } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -12,7 +12,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: 'product-detail.html',
+  templateUrl: 'product-detail.page.html',
 })
 export class ProductDetailPage {
   public product;
@@ -183,7 +183,7 @@ export class ProductDetailPage {
   clickWishList() {
 
     if (this.shared.customerData.customers_id == null || this.shared.customerData.customers_id == undefined) {
-      let modal = this.modalCtrl.create(LoginPage);
+      let modal = this.modalCtrl.create(LoginModal);
       modal.present();
     }
     else {

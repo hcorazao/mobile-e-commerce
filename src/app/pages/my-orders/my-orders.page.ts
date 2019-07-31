@@ -13,7 +13,7 @@ import { ProductsPageModule } from '../products/products.module';
 
 @Component({
   selector: 'app-my-orders',
-  templateUrl: 'my-orders.html',
+  templateUrl: 'my-orders.page.html',
 })
 export class MyOrdersPage {
   orders = new Array;

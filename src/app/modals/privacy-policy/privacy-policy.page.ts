@@ -8,7 +8,7 @@ import { SharedDataProvider } from '../../services/shared-data/shared-data';
   selector: 'app-privacy-policy',
   templateUrl: 'privacy-policy.html',
 })
-export class PrivacyPolicyPage {
+export class PrivacyPolicyModal {
 
   constructor(
     public viewCtrl: ViewController,
