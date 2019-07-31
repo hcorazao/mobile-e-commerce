@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { SelectCountryModal } from '../../modals/select-country/select-country.page';
@@ -11,7 +12,7 @@ import { ShippingMethodPageModule } from '../shipping-method/shipping-method.mod
 })
 export class BillingAddressPage {
   defaultAddress = true;
-  constructor(
+  constructor( private router: Router,
     public navParams: NavParams,
     public shared: SharedDataProvider,
     public modalCtrl: ModalController,
@@ -46,7 +47,7 @@ export class BillingAddressPage {
     }
   }
   submit() {
-   this.navCtrl.push(ShippingMethodPage);
+   this.router.navigate(['/shipping-method']);
   }
   selectCountryPage() {
     let modal = this.modalCtrl.create(SelectCountryModal, { page: 'billing' });

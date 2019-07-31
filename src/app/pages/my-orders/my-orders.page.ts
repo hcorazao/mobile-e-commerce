@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
@@ -18,7 +19,7 @@ import { ProductsPageModule } from '../products/products.module';
 export class MyOrdersPage {
   orders = new Array;
   httpRunning = true;
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public httpClient: HttpClient,
@@ -53,20 +54,20 @@ export class MyOrdersPage {
 
   showOrderDetail(order) {
 
-    this.navCtrl.push(OrderDetailPage, { 'data': order });
+    this.router.navigate(['/order-detail'], { 'data': order });
 
   }
   openProductsPage() {
-    this.navCtrl.push(ProductsPage, { sortOrder: 'newest' });
+    this.router.navigate(['/products-age'], { sortOrder: 'newest' });
   }
   ionViewDidLoad() {
     this.httpRunning = true;
     this.getOrders();
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
   openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
   }
 }

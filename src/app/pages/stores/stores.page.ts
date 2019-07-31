@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController } from 'ionic-angular';
 import {animate, style, transition, trigger} from "@angular/animations";
 import {SharedDataProvider} from "../../services/shared-data/shared-data";
@@ -27,19 +28,19 @@ import {ShopPageModule} from "../shop/shop.module";
 })
 export class StoresPage {
 
-  constructor(public navCtrl: NavController,
+  constructor( private router: Router,public navCtrl: NavController,
               public shared: SharedDataProvider,
               public config: ConfigProvider) {
   }
 
     openCart() {
-        this.navCtrl.push(CartPage);
+        this.router.navigate(['/cart']);
     }
     openSearch() {
-        this.navCtrl.push(SearchPage);
+        this.router.navigate(['/search']);
     }
 
     showManufacturerStore(c){
-      this.navCtrl.push(ShopPage, { data: c})
+      this.router.navigate(['/shop'], { data: c})
     }
 }

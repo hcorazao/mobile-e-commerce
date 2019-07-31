@@ -1,4 +1,7 @@
+
+
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController, Events, Platform } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { LanguageModal } from '../../modals/language/language.page';
@@ -28,7 +31,7 @@ import {MyShippingAddressesPageModule} from "../my-shipping-addresses/my-shippin
 
 export class SettingsPage {
   setting: { [k: string]: any } = {};
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
@@ -78,12 +81,12 @@ export class SettingsPage {
   }
 
   openPage(page) {
-    if (page == 'myAccount') this.navCtrl.push(MyAccountPage);
-    else if(page == 'myWishList') this.navCtrl.push(WishListPage);
-    else if (page == 'contactUs') this.navCtrl.push(ContactUsPage);
-    else if (page == 'aboutUs') this.navCtrl.push(AboutUsPage);
-    else if (page == 'myOrders') this.navCtrl.push(MyOrdersPage);
-    else if (page == 'myShippingAddresses') this.navCtrl.push(MyShippingAddressesPage);
+    if (page == 'myAccount') this.router.navigate(['/my-account']);
+    else if(page == 'myWishList') this.router.navigate(['/wish-list']);
+    else if (page == 'contactUs') this.router.navigate(['/contact-us']);
+    else if (page == 'aboutUs') this.router.navigate(['/about-us']);
+    else if (page == 'myOrders') this.router.navigate(['/my-orders']);
+    else if (page == 'myShippingAddresses') this.router.navigate(['/my-shipping-addresses']);
 
   }
 
@@ -148,10 +151,10 @@ export class SettingsPage {
   }
 
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
   openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
   }
 
 

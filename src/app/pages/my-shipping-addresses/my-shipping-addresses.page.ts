@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
 import { AlertProvider } from '../../services/alert/alert';
-import { EditShippingAddressPageModule } from '../edit-shipping-address/edit-shipping-address.module';
+import { EditShippingAddressModal } from '../../modals/edit-shipping-address/edit-shipping-address.page';
 import { CartPageModule } from '../cart/cart.module';
 import { SearchPageModule } from '../search/search.module';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MyShippingAddressesPage {
   allShippingAddress = new Array;
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public httpClient: HttpClient,
@@ -78,14 +79,14 @@ export class MyShippingAddressesPage {
     });
   };
   openEditShippingPage(data) {
-    let modal = this.modalCtrl.create(EditShippingAddressPage, { data: data, type: 'update' });
+    let modal = this.modalCtrl.create(EditShippingAddressModal, { data: data, type: 'update' });
     modal.present();
     modal.onDidDismiss(() => {
       this.getAllAddress();
     });
   }
   addShippingAddress() {
-    let modal = this.modalCtrl.create(EditShippingAddressPage, { type: 'add' });
+    let modal = this.modalCtrl.create(EditShippingAddressModal, { type: 'add' });
     modal.onDidDismiss(() => {
       this.getAllAddress();
     });
@@ -93,9 +94,9 @@ export class MyShippingAddressesPage {
   }
   ionViewWillEnter() { this.getAllAddress(); }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart-page)']);
   }
   openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search-page)']);
   }
 }

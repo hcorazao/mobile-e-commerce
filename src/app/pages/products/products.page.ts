@@ -35,7 +35,7 @@ export class ProductsPage {
   productView = 'grid';
   httpRunning = true;
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public config: ConfigProvider,
@@ -218,7 +218,7 @@ export class ProductsPage {
     if (e.scrollTop < 1200) this.scrollTopButton = false;
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
   ionViewDidLoad() {
     try {

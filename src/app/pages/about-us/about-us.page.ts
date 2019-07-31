@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { PrivacyPolicyModal } from '../../modals/privacy-policy/privacy-policy.page';
@@ -16,7 +17,7 @@ import { SearchPageModule } from '../search/search.module';
 })
 export class AboutUsPage {
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public modalCtrl: ModalController,
@@ -45,10 +46,10 @@ export class AboutUsPage {
     this.iab.create(this.config.siteUrl,"blank");
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
 }
 openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
 }
 
 }

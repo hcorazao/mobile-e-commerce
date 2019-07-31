@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
@@ -24,7 +25,7 @@ export class ProductDetailPage {
   product_price;
   cartButton = "addToCart";
   is_upcomming = false;
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     // public iab: InAppBrowser,
     public iab: any,

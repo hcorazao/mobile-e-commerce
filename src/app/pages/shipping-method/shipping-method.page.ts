@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class ShippingMethodPage {
   shippingMethod = new Array;
   selectedMethod = true;
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public shared: SharedDataProvider,
@@ -66,6 +67,6 @@ export class ShippingMethodPage {
     this.shared.orderDetails.shipping_method = data.name + '(' + data.shipping_method + ')';
   }
   openOrderPage() {
-    this.navCtrl.push(OrderPage);
+    this.router.navigate(['/orders']);
   }
 }

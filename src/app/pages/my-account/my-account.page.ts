@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
@@ -27,7 +28,7 @@ export class MyAccountPage {
   profilePicture = '';
   passwordData: { [k: string]: any } = {};
   placeholder: string = 'assets/placeholder.png';
-  constructor(
+  constructor( private router: Router,
     public httpClient: HttpClient,
     public config: ConfigProvider,
     public shared: SharedDataProvider,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, Events, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
@@ -33,7 +34,7 @@ import { HttpClient } from '@angular/common/http';
 export class CartPage {
   total: any;
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public config: ConfigProvider,
@@ -67,7 +68,7 @@ export class CartPage {
     this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data:any) => {
       this.loading.hide();
       if (data.success == 1) {
-        this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] });
+        this.router.navigate(['/product-detail'], { data: data.product_data[0] });
       }
     });
   }
@@ -111,11 +112,11 @@ export class CartPage {
       modal.present();
     }
     else {
-      this.navCtrl.push(ShippingAddressPage);
+      this.router.navigate(['/shipping-address']);
     }
   }
   openProductsPage() {
-    this.navCtrl.push(ProductsPage, { sortOrder: 'newest' });
+    this.router.navigate(['/products-age'], { sortOrder: 'newest' });
   }
 
 

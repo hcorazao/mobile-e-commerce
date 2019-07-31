@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
@@ -28,7 +30,7 @@ import { SearchPageModule} from '../search/search.module';
 })
 export class CategoriesPage {
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public config: ConfigProvider
@@ -36,12 +38,12 @@ export class CategoriesPage {
 
   }
   openSubCategories(parent) {
-    this.navCtrl.push(SubCategoriesPage, { 'parent': parent });
+    this.router.navigate(['/sub-categories'], { 'parent': parent });
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
   openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
   }
 }

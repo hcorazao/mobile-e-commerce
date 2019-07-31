@@ -44,7 +44,7 @@ export class OrderPage {
   paypalClientId = "";
   paypalEnviroment = "";
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public httpClient: HttpClient,
@@ -55,7 +55,8 @@ export class OrderPage {
     public couponProvider: CouponProvider,
     public translate: TranslateService,
     public actionSheetCtrl: ActionSheetController,
-    public http: HTTP) {
+    // public http: HTTP,
+    public http: any) {
   }
 
   //============================================================================================  

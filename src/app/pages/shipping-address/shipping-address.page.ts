@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
@@ -16,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 export class ShippingAddressPage {
 
 
-  constructor(public navCtrl: NavController,
+  constructor( private router: Router,public navCtrl: NavController,
     public navParams: NavParams,
     public config: ConfigProvider,
     public httpClient: HttpClient,
@@ -57,7 +58,7 @@ export class ShippingAddressPage {
     });
   }
   submit() {
-    this.navCtrl.push(BillingAddressPage);
+    this.router.navigate(['/billing-address']);
   }
   selectCountryPage() {
     let modal = this.modalCtrl.create(SelectCountryModal, { page: 'shipping' });

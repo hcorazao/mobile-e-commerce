@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { AlertProvider } from '../../services/alert/alert';
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderDetailPage {
   order: { [k: string]: any } = {};
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public config: ConfigProvider,
     public navParams: NavParams,
@@ -37,7 +38,7 @@ export class OrderDetailPage {
     this.httpClient.post(this.config.url + 'getallproducts', dat).subscribe((data:any) => {
       this.loading.hide();
       if (data.success == 1) {
-        this.navCtrl.push(ProductDetailPage, { data: data.product_data[0] });
+        this.router.navigate(['/product-detail'], { data: data.product_data[0] });
       }
     });
   }

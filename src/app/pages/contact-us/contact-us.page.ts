@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
@@ -22,7 +23,7 @@ export class ContactUsPage {
     email: '',
     message: ''
   };
-  constructor(
+  constructor( private router: Router,
     public httpClient: HttpClient,
     public config: ConfigProvider,
     public loading: LoadingProvider,
@@ -85,10 +86,10 @@ export class ContactUsPage {
   }
 
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
 }
 openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
 }
 
 }

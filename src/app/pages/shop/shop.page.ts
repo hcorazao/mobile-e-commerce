@@ -1,4 +1,5 @@
 import {Component ,ViewChild} from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import {ActionSheetController, Content, InfiniteScroll, NavController, NavParams, Slides} from 'ionic-angular';
 import {CartPageModule} from "../cart/cart.module";
 import {SharedDataProvider} from "../../services/shared-data/shared-data";
@@ -38,7 +39,7 @@ export class ShopPage {
     productView = 'grid';
     httpRunning = true;
 
-    constructor(public navCtrl: NavController,
+    constructor( private router: Router,public navCtrl: NavController,
                 public navParams: NavParams,
                 public shared: SharedDataProvider,
                 public config: ConfigProvider,
@@ -261,7 +262,7 @@ export class ShopPage {
     }
 
     openCart() {
-        this.navCtrl.push(CartPage);
+        this.router.navigate(['/cart']);
     }
 
     ionViewDidLoad() {

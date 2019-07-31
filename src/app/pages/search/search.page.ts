@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { AlertProvider } from '../../services/alert/alert';
@@ -18,7 +19,7 @@ export class SearchPage {
   search;
   searchResult = [];
   showCategories = true;
-  constructor(public navCtrl: NavController,
+  constructor( private router: Router,public navCtrl: NavController,
     public navParams: NavParams,
     public config: ConfigProvider,
     public httpClient: HttpClient,
@@ -58,9 +59,9 @@ export class SearchPage {
   };
 
   openProducts(id, name) {
-    this.navCtrl.push(ProductsPage, { id: id, name: name, sortOrder: 'newest' });
+    this.router.navigate(['/products'], { id: id, name: name, sortOrder: 'newest' });
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController } from 'ionic-angular';
 import { HomePageModule } from '../home/home.module';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
@@ -17,7 +18,7 @@ export class IntroPage {
     { image: "assets/intro/5.gif", title: "Order Page", icon: "md-list-box", description: "" }
   ];
 
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public shared: SharedDataProvider,
     public config: ConfigProvider,) {

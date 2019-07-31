@@ -30,7 +30,7 @@ export class WishListPage {
   @ViewChild(InfiniteScroll) infinite: InfiniteScroll;
 
   page = 0;
-  constructor(
+  constructor( private router: Router,
     public navCtrl: NavController,
     public navParams: NavParams,
     public httpClient: HttpClient,
@@ -65,9 +65,9 @@ export class WishListPage {
     this.getProducts();
   }
   openCart() {
-    this.navCtrl.push(CartPage);
+    this.router.navigate(['/cart']);
   }
   openSearch() {
-    this.navCtrl.push(SearchPage);
+    this.router.navigate(['/search']);
   }
 }

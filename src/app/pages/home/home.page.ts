@@ -47,7 +47,7 @@ export class HomePage {
   segments: any = 'topSeller';
   search;
   searchResult = [];
-  constructor(
+  constructor( private router: Router,
     public config: ConfigProvider,
     public shared: SharedDataProvider,
     public navCtrl: NavController,
@@ -55,16 +55,16 @@ export class HomePage {
   }
 
   openProducts(value) {
-    this.navCtrl.push(ProductsPage, { sortOrder: value });
+    this.router.navigate(['/products'], { sortOrder: value });
   }
   ngAfterContentChecked() {
     this.content.resize();
   }
 
   openCart() {
-      this.navCtrl.push(CartPage);
+      this.router.navigate(['/cart']);
   }
   openSearch() {
-      this.navCtrl.push(SearchPage);
+      this.router.navigate(['/search']);
   }
 }
