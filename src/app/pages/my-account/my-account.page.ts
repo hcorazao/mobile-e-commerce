@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
 import { Platform, NavController, ActionSheetController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AlertProvider } from '../../services/alert/alert';
 import { LoadingProvider } from '../../services/loading/loading';
 import { HttpClient } from '@angular/common/http';

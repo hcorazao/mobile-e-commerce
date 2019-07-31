@@ -3,7 +3,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, Events, ModalController } from 'ionic-angular';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { ConfigProvider } from '../../services/config/config';
-import { Toast } from '@ionic-native/toast';
+import { Toast } from '@ionic-native/toast/ngx';
 import { ProductDetailPageModule } from '../product-detail/product-detail.module';
 import { LoadingProvider } from '../../services/loading/loading';
 import { Storage } from '@ionic/storage';

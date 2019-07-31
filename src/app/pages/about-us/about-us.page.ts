@@ -7,7 +7,7 @@ import { TermServicesModal } from '../../modals/term-services/term-services.page
 import { RefundPolicyModal } from '../../modals/refund-policy/refund-policy.page';
 import { ConfigProvider } from '../../services/config/config';
 import { LoadingProvider } from '../../services/loading/loading';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CartPageModule } from '../cart/cart.module';
 import { SearchPageModule } from '../search/search.module';
 

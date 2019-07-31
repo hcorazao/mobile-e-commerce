@@ -3,7 +3,7 @@ import { ViewController, ModalController } from 'ionic-angular';
 import { LoadingProvider } from '../../services/loading/loading';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Platform } from 'ionic-angular';
 import { LoginModal } from '../login/login.page';
 import { HttpClient } from '@angular/common/http';

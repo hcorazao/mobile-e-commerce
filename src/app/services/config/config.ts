@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { LocalNotifications } from "@ionic-native/local-notifications";
+import { LocalNotifications } from "@ionic-native/local-notifications/ngx";
 import { Storage } from '@ionic/storage';
 import { Platform } from "ionic-angular";
 import { Md5 } from 'ts-md5/dist/md5';

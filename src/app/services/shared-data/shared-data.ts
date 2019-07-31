@@ -3,11 +3,11 @@ import { Storage } from '@ionic/storage';
 import { ConfigProvider } from '../config/config';
 import { Events, Platform, ToastController } from 'ionic-angular';
 import { LoadingProvider } from '../loading/loading';
-import { Push } from '@ionic-native/push';
-import { Device } from '@ionic-native/device';
-import { FCM } from '@ionic-native/fcm';
-import { OneSignal } from '@ionic-native/onesignal';
-import { AppVersion } from '@ionic-native/app-version';
+import { Push } from '@ionic-native/push/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 @Injectable({ providedIn: 'root' })

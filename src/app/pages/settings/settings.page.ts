@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController, Events, Platform } from 'ionic-angular';
-import { LocalNotifications } from '@ionic-native/local-notifications';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { LanguageModal } from '../../modals/language/language.page';
 import { ConfigProvider } from '../../services/config/config';
 import { Storage } from '@ionic/storage';
@@ -14,7 +14,7 @@ import { LoadingProvider } from '../../services/loading/loading';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { LoginModal} from '../../modals/login/login.page';
 import { MyAccountPageModule } from '../my-account/my-account.module';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CartPageModule } from '../cart/cart.module';
 import { SearchPageModule } from '../search/search.module';
 import { HttpClient } from '@angular/common/http';

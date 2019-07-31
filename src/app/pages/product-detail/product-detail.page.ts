@@ -3,7 +3,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ConfigProvider } from '../../services/config/config';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { LoginModal} from '../../modals/login/login.page';
 import { LoadingProvider } from '../../services/loading/loading';
 import { HttpClient } from '@angular/common/http';

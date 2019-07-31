@@ -5,9 +5,9 @@ import { LoadingProvider } from '../../services/loading/loading';
 import { SharedDataProvider } from '../../services/shared-data/shared-data';
 import { SignUpModal } from '../sign-up/sign-up.page';
 import { ForgotPasswordModal } from '../forgot-password/forgot-password.page';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { AlertProvider } from '../../services/alert/alert';
-import { GooglePlus } from '@ionic-native/google-plus';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
