@@ -2,7 +2,7 @@
 <ion-card *ngIf="type=='normal' || type=='recent' || type=='wishList' || type=='flash'" class="animated fadeIn">
   <div class="card-thumb">
     <div class="card-tag-new" *ngIf="checkProductNew()" translate></div>
-    <div class="card-tag-off" *ngIf="p.discount_price!=null">{{pDiscount()}} {{'OFF'|translate}}</div>
+    <div class="card-tag-off" *ngIf="p.discount_price!=null">{{pDiscount()}} {{'OFF'}}</div>
     <img class="image" src="{{config.imgUrl+p.products_image}}" (click)="showProductDetail()" />
   </div>
   <ion-card-content>
@@ -28,18 +28,18 @@
 
   <ion-buttons class="bar-buttons-remove" *ngIf="type=='wishList'">
     <button ion-button block color="danger" (click)="removeWishList();">
-      {{'REMOVE'|translate}}
+      {{'REMOVE'}}
     </button>
   </ion-buttons>
 
   <ion-buttons *ngIf="type=='normal'">
     <span *ngIf="config.cartButton==1">
       <button ion-button block class="bton" color="secondary" *ngIf="p.defaultStock!=0 && p.products_type==0" (click)="addToCart(p);">
-        {{'ADD TO CART'|translate}}</button>
+        {{'ADD TO CART'}}</button>
       <button ion-button block class="bton" color="secondary" *ngIf="p.products_type!=0" (click)="showProductDetail();">
-        {{'DETAILS'|translate}}</button>
+        {{'DETAILS'}}</button>
       <button ion-button block class="bton" color="danger" *ngIf="p.defaultStock==0 && p.products_type==0">
-        {{'OUT OF STOCK'|translate}}</button>
+        {{'OUT OF STOCK'}}</button>
     </span>
   </ion-buttons>
   <!-- ------------------------------------------------------------------------------------------------------------------ -->
@@ -50,12 +50,12 @@
     </button>
     <!-- up coming button  -->
     <button ion-button block class="bton" color="danger" *ngIf="is_upcomming" (click)="showProductDetail()">
-      {{'Up Coming'|translate}}</button>
+      {{'Up Coming'}}</button>
   </ion-buttons>
   <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
   <ion-buttons class="bar-buttons-remove" *ngIf="type=='recent'">
-    <button ion-button block class="bton" color="danger" (click)="removeRecent()">{{'REMOVE'|translate}}</button>
+    <button ion-button block class="bton" color="danger" (click)="removeRecent()">{{'REMOVE'}}</button>
   </ion-buttons>
 
   <ion-row class="card-add-cart" *ngIf="isInCart()" (click)="showProductDetail()">
@@ -70,7 +70,7 @@
   <ion-row class="list-add-cart" *ngIf="isInCart()" (click)="showProductDetail()">
     <ion-icon name="checkmark-circle"></ion-icon>
   </ion-row>
-  <div class="list-tag-off" *ngIf="p.discount_price!=null">{{pDiscount()}}<br>{{'OFF'|translate}}</div>
+  <div class="list-tag-off" *ngIf="p.discount_price!=null">{{pDiscount()}}<br>{{'OFF'}}</div>
   <ion-thumbnail item-start>
     <div class="list-tag-new" *ngIf="checkProductNew()" translate></div>
     <img src="{{config.imgUrl+p.products_image}}" (click)="showProductDetail()">
@@ -88,11 +88,11 @@
     <ion-col col-10>
       <span *ngIf="config.cartButton==1">
         <button ion-button solid small class="bton" color="secondary" *ngIf="p.defaultStock!=0 && p.products_type==0" (click)="addToCart(p)"
-          item-start>{{'ADD TO CART'|translate}}</button>
+          item-start>{{'ADD TO CART'}}</button>
         <button ion-button solid small class="bton" color="secondary" *ngIf="p.products_type!=0" (click)="showProductDetail()"
-          item-start>{{'DETAILS'|translate}}</button>
+          item-start>{{'DETAILS'}}</button>
         <button ion-button solid small class="bton" color="danger" *ngIf="p.defaultStock==0 && p.products_type==0" item-start>
-          {{'OUT OF STOCK'|translate}}</button>
+          {{'OUT OF STOCK'}}</button>
       </span>
     </ion-col>
     <ion-col col-2>

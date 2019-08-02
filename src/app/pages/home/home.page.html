@@ -30,7 +30,7 @@
 
   <!-- Flash sale items products -->
   <div class="module" *ngIf="shared.flashSaleProducts.length!=0" [@animate]>
-    <h3>{{'Flash Sale'|translate}}</h3>
+    <h3>{{'Flash Sale'}}</h3>
     <ion-slides slidesPerView=2.2 spaceBetween=10 dir="{{shared.dir}}" autoResize='true'>
       <ion-slide *ngFor="let p of shared.flashSaleProducts" [@animate]>
         <product [data]="p" [type]="'flash'"></product>
@@ -40,9 +40,9 @@
   </div>
   <!-- top Segments  -->
   <ion-segment [(ngModel)]="segments" color="primary">
-    <ion-segment-button value="topSeller">{{ 'Top Seller' | translate }}</ion-segment-button>
-    <ion-segment-button value="deals">{{ 'Deals' | translate }} </ion-segment-button>
-    <ion-segment-button value="mostLiked"> {{ 'Most Liked' | translate }}</ion-segment-button>
+    <ion-segment-button value="topSeller">{{ 'Top Seller'  }}</ion-segment-button>
+    <ion-segment-button value="deals">{{ 'Deals'  }} </ion-segment-button>
+    <ion-segment-button value="mostLiked"> {{ 'Most Liked'  }}</ion-segment-button>
   </ion-segment>
 
   <!-- top segments products -->
@@ -60,7 +60,7 @@
         <ion-card (click)="openProducts('top seller')">
           <ion-card-content>
             <ion-icon name="checkmark-circle"></ion-icon>
-            <h4>{{ 'View All' | translate }}</h4>
+            <h4>{{ 'View All'  }}</h4>
           </ion-card-content>
         </ion-card>
       </ion-slide>
@@ -74,7 +74,7 @@
         <ion-card (click)="openProducts('special')">
           <ion-card-content>
             <ion-icon name="checkmark-circle"></ion-icon>
-            <h4>{{ 'View All' | translate }}</h4>
+            <h4>{{ 'View All'  }}</h4>
           </ion-card-content>
         </ion-card>
       </ion-slide>
@@ -88,7 +88,7 @@
         <ion-card (click)="openProducts('most liked')">
           <ion-card-content>
             <ion-icon name="checkmark-circle"></ion-icon>
-            <h4>{{ 'View All' | translate }}</h4>
+            <h4>{{ 'View All'  }}</h4>
           </ion-card-content>
         </ion-card>
       </ion-slide>
@@ -97,7 +97,7 @@
   </div>
   <!-- Recent Viewed items products -->
   <div class="module" *ngIf="shared.recentViewedProducts.length!=0" [@animate]>
-    <h5>{{'Recently Viewed'|translate}}</h5>
+    <h5>{{'Recently Viewed'}}</h5>
     <ion-slides slidesPerView=2.2 spaceBetween=10 dir="{{shared.dir}}" autoResize='true'>
       <ion-slide *ngFor="let p of shared.recentViewedProducts" [@animate]>
         <product [data]="p" [type]="'recent'"></product>

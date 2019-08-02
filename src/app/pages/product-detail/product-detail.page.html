@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{'Product Details'| translate }}
+      {{'Product Details' }}
     </ion-title>
   </ion-navbar>
   <ion-toolbar *ngIf="!is_upcomming && product.flash_start_date" color="secondary">
 
     <ion-title class="sub-ion-title">
       <ion-icon name="clock" item-start></ion-icon>
-      {{'Discount ends in'|translate}}&nbsp;<timer [data]="product"></timer>
+      {{'Discount ends in'}}&nbsp;<timer [data]="product"></timer>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -26,20 +26,20 @@
 
   <ion-grid class="product-detail-title">
     <ion-row>
-      <div class="product-new" *ngIf="checkProductNew()">{{'New'|translate}}</div>
+      <div class="product-new" *ngIf="checkProductNew()">{{'New'}}</div>
       <ion-col col-12>
         <h3>{{product.products_name}}
           <br>
           <small *ngFor="let c of product.categories; let i = index">{{c.categories_name}}<span *ngIf="product.categories.length!=i+1">,</span>&nbsp;</small>
         </h3>
-        <p>{{'Likes'|translate}}&nbsp;({{product.products_liked}})</p>
+        <p>{{'Likes'}}&nbsp;({{product.products_liked}})</p>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid class="product-detail-header">
     <ion-row>
-      <div class="product-off" *ngIf="product.discount_price!=null">{{pDiscount()}}{{'OFF'|translate}}</div>
+      <div class="product-off" *ngIf="product.discount_price!=null">{{pDiscount()}}{{'OFF'}}</div>
       <ion-col col-8>
         <span *ngIf="!product.flash_start_date">
           <span class="product-price-normal" *ngIf="product.discount_price==null">{{product_price |curency}}</span>
@@ -50,8 +50,8 @@
           <span class="product-price-normal">{{flash_price |curency}}</span>
           <span class="product-price-normal-through">{{product_price |curency}}</span>
         </span>
-        <span class="product-outstock" *ngIf="cartButton=='outOfStock'">{{'Out of Stock'|translate}}</span>
-        <span class="product-instock" *ngIf="cartButton=='addToCart'">{{'In Stock'|translate}}</span>
+        <span class="product-outstock" *ngIf="cartButton=='outOfStock'">{{'Out of Stock'}}</span>
+        <span class="product-instock" *ngIf="cartButton=='addToCart'">{{'In Stock'}}</span>
 
       </ion-col>
       <ion-col col-4>
@@ -60,20 +60,20 @@
       </ion-col>
 
       <button ion-button block color="secondary" *ngIf="cartButton=='addToCart' && !is_upcomming" (click)="addToCartProduct()">
-        {{'Add to Cart'|translate}}</button>
+        {{'Add to Cart'}}</button>
       <button ion-button block color="danger" *ngIf="cartButton=='outOfStock' && !is_upcomming">
-        {{'OUT OF STOCK'|translate}}</button>
+        {{'OUT OF STOCK'}}</button>
       <button ion-button block color="secondary" *ngIf="cartButton=='external' && !is_upcomming" (click)="openProductUrl()">
-        {{'VIEW PRODUCT'|translate}}</button>
+        {{'VIEW PRODUCT'}}</button>
 
-      <button ion-button block color="danger" *ngIf="is_upcomming">{{'Up Coming'|translate}}</button>
+      <button ion-button block color="danger" *ngIf="is_upcomming">{{'Up Coming'}}</button>
     </ion-row>
   </ion-grid>
 
   <ion-grid class="product-detail-content" *ngIf="product.products_description!=null && product.products_description!=''">
     <ion-row>
       <ion-col col-12>
-        <h4>{{'Product Description'|translate}}</h4>
+        <h4>{{'Product Description'}}</h4>
         <div class="product-describtion" [innerHTML]="product.products_description"></div>
       </ion-col>
     </ion-row>
@@ -82,7 +82,7 @@
   <ion-grid class="product-detail-content" *ngIf="product.attributes.length!=0">
     <ion-row>
       <ion-col col-12>
-        <h4>{{'Techincal details'|translate}}</h4>
+        <h4>{{'Techincal details'}}</h4>
         <div class="product-describtion" [innerHTML]="product.products_description"></div>
       </ion-col>
 

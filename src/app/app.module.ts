@@ -9,6 +9,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 import { Push } from '@ionic-native/push/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -24,7 +25,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

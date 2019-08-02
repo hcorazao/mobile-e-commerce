@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{'Search'| translate }}
+      {{'Search' }}
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="cart-button" (click)="openCart()">
@@ -16,7 +16,7 @@
 <ion-content>
 
   <form #loginForm="ngForm" (ngSubmit)="getSearchData()">
-    <ion-searchbar [(ngModel)]="search" name="search" placeholder="{{'Search'|translate}}" [showCancelButton]="shouldShowCancel"
+    <ion-searchbar [(ngModel)]="search" name="search" placeholder="{{'Search'}}" [showCancelButton]="shouldShowCancel"
       (ionInput)="onChangeKeyword($event)">
     </ion-searchbar>
   </form>
@@ -36,7 +36,7 @@
         <img src="{{config.imgUrl+c.image}}">
       </ion-avatar>
       <h2>{{c.name}}</h2>
-      <p>{{c.total_products}} {{'Products'| translate }} </p>
+      <p>{{c.total_products}} {{'Products' }} </p>
     </ion-item>
   </ion-list>
 </ion-content>
